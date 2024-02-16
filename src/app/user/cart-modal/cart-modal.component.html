@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h4 class="modal-title">Shopping Cart</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group">
+      <ng-container *ngFor="let uniqueItem of getUniqueItems(cart)">
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              {{ uniqueItem.album_name }} - ${{ uniqueItem.price }}
+              <span class="badge bg-primary">{{ getItemCount(uniqueItem) }}</span>
+            </div>
+            <button class="btn btn-outline-danger rounded-circle" (click)="removeItem(uniqueItem)"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </li>
+      </ng-container>
+      <li *ngIf="cart.length === 0" class="list-group-item">Your cart is empty</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+  </div>
+  

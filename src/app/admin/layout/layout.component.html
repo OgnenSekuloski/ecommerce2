@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-sm navbar-danger bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)"><i class="fa-solid fa-record-vinyl"></i> Vinylify</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/shop">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>   
+
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>

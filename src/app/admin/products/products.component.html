@@ -1,0 +1,95 @@
+<div class="row mt-3">
+    <div class="col">
+        <div class="card">
+            <div class="card-header bg-danger">
+                <div class="row">
+                    <div class="col-6">
+                        Product List
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="btn btn-sm btn-success" (click)="openSidePanel()">New</button>                    
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3 mt-3" *ngFor="let product of productObject">
+                        <div class="card">
+                            <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2" (click)="removeProduct(product)">Remove</button>
+                            <img class="card-img-top" src="{{product.image}}" alt="Card image" />
+                            <div class="card-body">
+                              <h4 class="card-title">{{product.album_name}}</h4>
+                              <p class="card-text"><b>Artist:</b> {{product.artist}}</p>
+                              <p class="card-text"><b>Genre:</b> {{product.genre}}</p>
+                              <p class="card-text">{{product.description}}</p>
+                              <p class="card-text"><b>Price: ${{product.price}}</b></p>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4" *ngIf="visibleSidePanel">
+        <div class="card">
+            <div class="card-header bg-danger">
+                <div class="row">
+                    <div class="col-6">
+                        New Product
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="btn btn-sm btn-success" (click)="closeSidePanel()">Close</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <label for="productName">Name:</label>
+                        <input type="text" id="productName" [(ngModel)]="productObject.album_name" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="productPrice">Price:</label>
+                        <input type="text" id="productPrice" [(ngModel)]="productObject.price" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="productGenre">Genre:</label>
+                        <input type="text" id="productGenre" [(ngModel)]="productObject.genre" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="productArtist">Artist:</label>
+                        <input type="text" id="productArtist" [(ngModel)]="productObject.artist" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="productDescription">Description:</label>
+                        <textarea rows="3" id="productDescription" [(ngModel)]="productObject.description" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="productImage">Image URL:</label>
+                        <input type="text" id="productImage" [(ngModel)]="productObject.image" class="form-control">
+                    </div>
+                </div>
+                <div class="row"><br></div>
+                <div class="row justify-content-center mx-auto">
+                    <div class="col-2">
+                        <button class="btn btn-outline-success btn-block" (click)="addProduct()">Add</button>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-outline-danger btn-block" (click)="closeSidePanel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:void(0)"
+      ><i class="fa-solid fa-record-vinyl"></i> Vinylify</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
+        </li>
+      </ul>
+      <div class="text-end">
+        <a class="btn btn-outline-warning ms-2" routerLink="/login">Admin</a>
+        <a class="btn btn-primary ms-2" (click)="openCartModal()">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge bg-danger ms-1">{{ cart.length }}</span>
+        </a>
+      </div>   
+    </div>
+  </div>
+</nav>
+
+<body>
+  <div class="container h-100">
+    <div class="row h-100">
+        <div class="col-sm-12 my-auto">
+            <div id="content" style="padding: 10%;">
+                <h1><i class="fa-solid fa-record-vinyl"></i></h1>
+                <h3>Vinylify</h3>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row mt-3 justify-content-center">
+      <div class="col-11">
+        <div class="card">
+          <div class="card-header bg-primary">
+            <div class="row">
+              <div class="col-6">Product List</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3 mt-3" *ngFor="let product of productObject">
+                <div class="card">
+                  <img class="card-img-top" src="{{ product.image }}" alt="Card image"/>
+                  <div class="card-body">
+                    <h4 class="card-title">{{ product.album_name }}</h4>
+                    <p class="card-text"><b>Artist:</b> {{ product.artist }}</p>
+                    <p class="card-text"><b>Genre:</b> {{ product.genre }}</p>
+                    <p class="card-text">{{ product.description }}</p>
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col-6"><b>Price: ${{ product.price }}</b></div>
+                      <div class="col-6 text-end"><a class="btn btn-primary" (click)="addToCart(product)">Add to cart</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3"></div>
+  
+  <footer class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div class="navbar-brand">
+        <i class="fa-solid fa-record-vinyl"></i> Vinylify
+      </div>
+      <div class="navbar-text">
+        Thank you for shopping with us!
+      </div>
+      <div class="social-icons">
+        <a class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+        <a class="text-white me-2"><i class="fab fa-twitter"></i></a>
+        <a class="text-white me-2"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+  
+
+
+</body>
+
+  
